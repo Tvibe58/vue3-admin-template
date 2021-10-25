@@ -1,0 +1,33 @@
+#app {
+  #layout {
+    @var: 100vh;
+
+    .el-header {
+      --el-header-padding: 0;
+      --el-header-height : @headerHeight;
+      position           : relative;
+    }
+
+    #header {
+      height          : @headerHeight;
+      border-bottom   : 1px solid #eee;
+      position        : fixed;
+      width           : 100%;
+      background-color: @themeColor;
+      text-align      : left;
+      display         : flex;
+      flex-direction  : row;
+      justify-content : flex-start;
+      align-items     : center;
+
+      .router-link-active {
+        height: 40px;
+      }
+
+      .logo {
+        height      : 40px;
+        padding-left: 20px;
+      }
+    }
+  }
+}
