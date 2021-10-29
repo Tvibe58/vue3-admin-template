@@ -5,9 +5,7 @@
         <Header></Header>
       </el-header>
       <el-container class="container">
-        <el-aside width="100px">
-          <Sider></Sider>
-        </el-aside>
+        <Sider></Sider>
         <el-main>
           <router-view />
         </el-main>
@@ -19,12 +17,14 @@
 <script>
 import Header from '@/components/layout/components/Header.vue'
 import Sider from '@/components/layout/components/Sider.vue'
+import ResizeMixin from './mixin/ResizeHandler'
 
 export default {
   name: 'Layout',
   components: {
     Header,
     Sider
-  }
+  },
+  mixins: [ResizeMixin]
 }
 </script>
