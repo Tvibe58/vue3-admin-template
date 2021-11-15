@@ -15,7 +15,8 @@ const routes = [
         name: 'Home',
         component: Home,
         meta: {
-          title: '首页'
+          title: '首页',
+          icon: 'el-icon-house'
         }
       },
       {
@@ -24,7 +25,7 @@ const routes = [
         component: Empty,
         meta: {
           title: '其他',
-          icon: 'people'
+          icon: 'el-icon-collection'
         },
         children: [
           {
@@ -55,7 +56,8 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
         meta: {
-          title: '关于'
+          title: '关于',
+          icon: 'el-icon-setting'
         }
       }
     ]

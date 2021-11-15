@@ -2,15 +2,12 @@
   <div>
     <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
       <app-link :to="resolvePath(onlyOneChild.path)">
-        <el-menu-item
-          :index="resolvePath(onlyOneChild.path)"
-          :class="{'submenu-title-noDropdown':!isNest}"
-        >
+        <el-menu-item :index="resolvePath(onlyOneChild.path)">
           <i
-            class="el-icon-setting"
             v-if="!isNest"
+            :class="item.meta.icon"
           ></i>
-          <template #title>{{ item.meta.title }}</template>
+          <template #title><span :style="{'padding-left':isNest? '34px': 0}">{{ item.meta.title }}</span></template>
         </el-menu-item>
       </app-link>
     </template>
@@ -22,7 +19,7 @@
       popper-append-to-body
     >
       <template #title>
-        <i class="el-icon-location"></i>
+        <i :class="item.meta.icon"></i>
         <span>{{ item.meta.title }}</span>
       </template>
       <sidebar-item
