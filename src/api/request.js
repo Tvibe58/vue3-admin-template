@@ -35,8 +35,8 @@ function request (url, params, options = { loading: true, mock: false, error: tr
       options,
       ...data
     }).then((res) => {
-      // 响应拦截器2XX状态的
-      // resolve(res)
+      // 对应响应拦截器2XX状态的返回
+      resolve(res)
       console.log('instance', res)
       // 此处作用很大，可以扩展很多功能。
       // 比如对接多个后台，数据结构不一致，可做接口适配器
