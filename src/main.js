@@ -6,6 +6,7 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import './styles/index.less'
+import request from './api/request'
 
 const app = createApp(App)
 
@@ -19,4 +20,8 @@ app.use(router)
 app.use(ElementPlus, {
   locale: zhCn
 })
+
+// 在原型上扩展,这样不用在每个页面都导入request
+app.config.globalProperties.$api = request
+
 app.mount('#app')

@@ -24,17 +24,16 @@ const routes = [
         name: 'Group',
         component: Empty,
         meta: {
-          title: '其他',
+          title: 'Demo',
           icon: 'el-icon-collection'
         },
         children: [
           {
-            path: '/group1',
+            path: '/list',
             name: 'Group1',
-            component: Home,
+            component: () => import('../views/Demo/List.vue'),
             meta: {
-              title: '测试1',
-              icon: 'people'
+              title: '列表'
             }
           },
           {
