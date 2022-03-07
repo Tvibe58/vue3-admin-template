@@ -6,6 +6,11 @@
       plain
       @click="login"
     >Login</el-button>
+    <el-button
+      type="primary"
+      plain
+      @click="check"
+    >Check</el-button>
   </div>
 </template>
 
@@ -29,9 +34,15 @@ export default {
         // imageCode: '',
         // uid: uuid.v4().replace(/-/g, '')
       }
-      this.$api.post('/uaa/login/token', data, { error: false, unAuth: true }).then(res => {
-        // this.$api.post('/uaa/login/token', data).then(res => {
+      this.$api.post('/uaa/login/token', data, { error: true, unAuth: true }).then(res => {
         console.log('接口res', res)
+      }).catch(err => {
+        console.log('接口err', err)
+      })
+    },
+    check () {
+      this.$api.get('/marketing/api/pc/work/check').then(res => {
+        console.log('check res', res)
       }).catch(err => {
         console.log('接口err', err)
       })

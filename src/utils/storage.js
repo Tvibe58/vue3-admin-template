@@ -3,7 +3,12 @@ const storage = {
     localStorage.setItem(key, JSON.stringify(value))
   },
   get (key) {
-    return JSON.stringify(localStorage.getItem(key))
+    const temp = localStorage.getItem(key)
+    if (!temp) {
+      return null
+    } else {
+      return JSON.parse(temp)
+    }
   },
   remove (key) {
     localStorage.removeItem(key)

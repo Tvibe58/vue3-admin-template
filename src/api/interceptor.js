@@ -11,7 +11,7 @@
  */
 
 import axios from 'axios'
-import storage from '../utils/storage'
+import storage from '@/utils/storage'
 // import { ElMessage } from 'element-plus'
 
 // 创建一个独立的axios实例
@@ -28,7 +28,7 @@ const service = axios.create({
 // 请求拦截器
 service.interceptors.request.use(
   config => {
-    console.log('发送前', config)
+    // console.log('发送前', config)
     // 发送请求前做的事
     const tokenKey = config.token || 'token'
     if (!config.options.unAuth) {
@@ -43,7 +43,6 @@ service.interceptors.request.use(
     return config
   },
   error => {
-    console.log('发送后', error)
     // 对请求错误的处理
     Promise.reject(error)
   }
@@ -54,7 +53,8 @@ service.interceptors.response.use(
   response => {
     // 2XX 状态码走这
     // 响应数据
-    return response
+    const res = response.data
+    return res
   },
   error => {
     // 除 2XX 外的状态码都走这
