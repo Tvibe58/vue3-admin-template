@@ -29,8 +29,8 @@ export default {
       storage.set('token', 'dc8d280b-df84-43f9-93cd-711b427453b0')
       // dc8d280b-df84-43f9-93cd-711b427453b0
       const data = {
-        username: 'admin',
-        password: 'seeksdata@2021'
+        username: '',
+        password: ''
         // imageCode: '',
         // uid: uuid.v4().replace(/-/g, '')
       }
@@ -38,6 +38,11 @@ export default {
         console.log('接口res', res)
       }).catch(err => {
         console.log('接口err', err)
+      })
+    },
+    getData () {
+      this.$api.get('/marketing/api/pc/welcome/info').then(res => {
+
       })
     },
     check () {
